@@ -13,7 +13,18 @@ export function VariantSelector({
   attributeDefs: AttributeDefinition[];
 }) {
   const hasVariants = product.variants.length > 0;
-  const [selected, setSelected] = useState<Partial<Record<AttributeKey, string>>>({});
+  const [selected, setSelected] = useState<Partial<Record<AttributeKey, string>>>(() => {
+    // Si un atributo tiene un único valor posible, se preselecciona: no tiene sentido
+    // obligar a elegir cuando no hay alternativa real.
+    const initial: Partial<Record<AttributeKey, string>> = {};
+    for (const def of attributeDefs) {
+      const values = Array.from(
+        new Set(product.variants.map((v) => v.attributes[def.key]).filter(Boolean))
+      );
+      if (values.length === 1) initial[def.key] = values[0];
+    }
+    return initial;
+  });
   const [quantity, setQuantity] = useState(1);
   const [confirmation, setConfirmation] = useState(false);
   const { addItem } = useCart();
