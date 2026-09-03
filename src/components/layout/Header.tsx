@@ -1,31 +1,44 @@
-import { Logo } from "@/components/ui/Logo";
+"use client";
 
+import { useState } from "react";
+import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
+import { getActiveCategories } from "@/lib/data/categories";
+
+const categories = getActiveCategories();
 const NAV_ITEMS = [
-  { label: "Lencería", href: "/categorias/lenceria" },
-  { label: "Body Splash", href: "/categorias/body-splash" },
-  { label: "Perfumes", href: "/categorias/perfumes" },
-  { label: "Cuidado Corporal", href: "/categorias/cuidado-corporal" },
-  { label: "Accesorios", href: "/categorias/accesorios" },
-  { label: "Belleza", href: "/categorias/belleza" },
-  { label: "Combos", href: "/categorias/combos" },
-  { label: "Ofertas", href: "/categorias/ofertas" },
+  ...categories.map((c) => ({ label: c.name, href: `/categorias/${c.slug}` })),
+  { label: "Ofertas", href: "/ofertas" },
+  { label: "Novedades", href: "/novedades" },
 ];
 
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-30 border-b border-cream bg-bone/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <button
+          type="button"
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="rounded-full p-2 text-ink transition-colors hover:bg-cream xl:hidden"
+        >
+          <MenuIcon className="h-5 w-5" open={menuOpen} />
+        </button>
+
         <Logo />
 
-        <nav className="hidden flex-1 justify-center gap-6 lg:flex">
+        <nav className="hidden flex-1 flex-nowrap items-center justify-center gap-x-4 xl:flex">
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-wine"
+              className="whitespace-nowrap text-sm font-medium text-ink/80 transition-colors hover:text-wine"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -46,7 +59,40 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <nav className="border-t border-cream px-4 py-3 xl:hidden">
+          <ul className="flex flex-col divide-y divide-cream">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-3 text-sm font-medium text-ink/80 transition-colors hover:text-wine"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
+  );
+}
+
+function MenuIcon({ className, open }: { className?: string; open: boolean }) {
+  if (open) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+        <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+    </svg>
   );
 }
 
