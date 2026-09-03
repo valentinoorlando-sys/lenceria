@@ -5,7 +5,7 @@ export interface CartItem {
   name: string;
   brand: string;
   unitPrice: number;
-  variantLabel?: string;
+  variantAttributes?: { label: string; value: string }[];
   quantity: number;
   maxQuantity: number;
 }

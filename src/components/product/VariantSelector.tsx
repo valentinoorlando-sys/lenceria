@@ -46,9 +46,10 @@ export function VariantSelector({
 
   function handleAdd() {
     if (!canAdd) return;
-    const variantLabel = attributeDefs
-      .map((def) => `${def.label}: ${selected[def.key]}`)
-      .join(" · ");
+    const variantAttributes = attributeDefs.map((def) => ({
+      label: def.label,
+      value: selected[def.key]!,
+    }));
 
     addItem(
       {
@@ -58,7 +59,7 @@ export function VariantSelector({
         name: product.name,
         brand: product.brand,
         unitPrice,
-        variantLabel: variantLabel || undefined,
+        variantAttributes: variantAttributes.length > 0 ? variantAttributes : undefined,
         maxQuantity: hasVariants ? matchedVariant!.stock : product.stock,
       },
       quantity
