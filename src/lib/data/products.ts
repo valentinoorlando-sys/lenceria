@@ -281,8 +281,12 @@ export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
-export function getProductsByCategory(categorySlug: string): Product[] {
-  return getActiveProducts().filter((p) => p.categorySlug === categorySlug);
+export function getProductsByCategory(categorySlug: string, subcategorySlug?: string): Product[] {
+  return getActiveProducts().filter(
+    (p) =>
+      p.categorySlug === categorySlug &&
+      (!subcategorySlug || p.subcategorySlug === subcategorySlug)
+  );
 }
 
 export function getFeaturedProducts(limit = 8): Product[] {
