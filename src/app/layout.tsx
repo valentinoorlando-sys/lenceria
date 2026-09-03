@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Work_Sans } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import { Header } from "@/components/layout/Header";
@@ -27,11 +27,28 @@ export const metadata: Metadata = {
   },
   description:
     "Lencería, body splash, perfumes, cuidado corporal, accesorios y regalos. Envíos a todo el país.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "es_AR",
     siteName: siteConfig.brandName,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#fffdfb",
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.brandName,
+  url: `https://${siteConfig.domain}`,
+  sameAs: [siteConfig.instagramUrl],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -41,6 +58,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${brandSerif.variable} ${brandSans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Header />
         <main className="min-w-0 flex-1">{children}</main>
         <Footer />

@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductBySlug, getRecommendedProducts, getActiveProducts } from "@/lib/data/products";
-import { formatPrice } from "@/lib/config";
-import { discountPercent } from "@/lib/types";
+import { formatPrice, siteConfig } from "@/lib/config";
+import { discountPercent, isInStock } from "@/lib/types";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { VariantSelector } from "@/components/product/VariantSelector";
 import { ProductSection } from "@/components/home/ProductSection";
@@ -26,6 +26,9 @@ export async function generateMetadata({
   return {
     title: product.name,
     description: product.description,
+    alternates: {
+      canonical: `/productos/${product.slug}`,
+    },
     openGraph: {
       title: product.name,
       description: product.description,
@@ -51,8 +54,30 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
   const recommended = getRecommendedProducts(product.slug, 4);
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    brand: { "@type": "Brand", name: product.brand },
+    category: category?.name,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: siteConfig.currency.code,
+      price: product.price,
+      availability: isInStock(product)
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      url: `https://${siteConfig.domain}/productos/${product.slug}`,
+    },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-xs text-ink/50">
         <Link href="/" className="hover:text-wine">
           Inicio
