@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 import { getActiveCategories } from "@/lib/data/categories";
+import { useCart } from "@/lib/cart/context";
 
 const categories = getActiveCategories();
 const NAV_ITEMS = [
@@ -14,6 +15,7 @@ const NAV_ITEMS = [
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { itemCount } = useCart();
 
   return (
     <header className="sticky top-0 z-30 border-b border-cream bg-bone/95 backdrop-blur">
@@ -43,20 +45,25 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-4">
-          <button
-            type="button"
+          <Link
+            href="/buscar"
             aria-label="Buscar"
             className="rounded-full p-2 text-ink transition-colors hover:bg-cream"
           >
             <SearchIcon className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
+            href="/carrito"
             aria-label="Ver carrito"
             className="relative rounded-full p-2 text-ink transition-colors hover:bg-cream"
           >
             <CartIcon className="h-5 w-5" />
-          </button>
+            {itemCount > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-wine text-[10px] font-medium text-cream">
+                {itemCount > 9 ? "9+" : itemCount}
+              </span>
+            )}
+          </Link>
         </div>
       </div>
 
