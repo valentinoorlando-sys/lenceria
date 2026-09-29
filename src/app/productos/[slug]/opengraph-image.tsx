@@ -30,7 +30,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           style={{
             display: "flex",
             fontSize: 26,
-            color: "#b79766",
+            color: "#c65e94",
             letterSpacing: 6,
             marginBottom: 24,
           }}
@@ -41,7 +41,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           {name}
         </div>
         {price && (
-          <div style={{ display: "flex", fontSize: 40, color: "#7a2048", marginTop: 32 }}>{price}</div>
+          <div style={{ display: "flex", fontSize: 40, color: "#80144c", marginTop: 32 }}>{price}</div>
         )}
       </div>
     ),

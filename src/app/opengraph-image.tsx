@@ -24,7 +24,7 @@ export default function Image() {
             width: 120,
             height: 120,
             borderRadius: "50%",
-            background: "#7a2048",
+            background: "#80144c",
             alignItems: "center",
             justifyContent: "center",
             color: "#f3e9dc",
@@ -35,7 +35,7 @@ export default function Image() {
         >
           f
         </div>
-        <div style={{ display: "flex", fontSize: 80, color: "#7a2048", fontStyle: "italic" }}>
+        <div style={{ display: "flex", fontSize: 80, color: "#80144c", fontStyle: "italic" }}>
           {siteConfig.brandName}
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#231b1b", marginTop: 16, letterSpacing: 4 }}>

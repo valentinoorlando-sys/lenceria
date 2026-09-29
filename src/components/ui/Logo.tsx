@@ -28,8 +28,11 @@ export function Logo({ className }: { className?: string }) {
           f
         </text>
       </svg>
-      <span className="font-serif text-2xl tracking-wide text-ink">
-        {siteConfig.brandName}
+      <span className="flex items-baseline gap-1">
+        <span className="font-serif text-2xl italic tracking-wide text-ink">
+          .{siteConfig.brandName.toLowerCase()}
+        </span>
+        <span className="font-sans text-sm font-medium text-bronze">store</span>
       </span>
     </Link>
   );

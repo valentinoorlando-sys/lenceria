@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Work_Sans } from "next/font/google";
+import { Playfair_Display, Work_Sans } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import "./globals.css";
 
-const brandSerif = Cormorant_Garamond({
+const brandSerif = Playfair_Display({
   variable: "--font-brand-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
