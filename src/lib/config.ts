@@ -1,6 +1,7 @@
 export const siteConfig = {
   brandName: "Fratelli",
-  tagline: "Moda íntima, fragancias y cuidado personal",
+  tagline: "Importados, skincare coreano y beauty",
+  announcement: "Importados · Skincare · Beauty · Victoria's Secret",
   domain: "fratellistore.com.ar",
   whatsappNumber: "5493518553004",
   instagramHandle: "fratellistore.ok",

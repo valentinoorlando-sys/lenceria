@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Work_Sans } from "next/font/google";
 import { siteConfig } from "@/lib/config";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.brandName}`,
   },
   description:
-    "Lencería, body splash, perfumes, cuidado corporal, accesorios y regalos. Envíos a todo el país.",
+    "Importados, skincare coreano, beauty y Victoria's Secret. Envíos a todo el país.",
   alternates: {
     canonical: "/",
   },
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <AnnouncementBar />
         <Header />
         <main className="min-w-0 flex-1">{children}</main>
         <Footer />

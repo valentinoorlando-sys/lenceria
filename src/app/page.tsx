@@ -5,7 +5,7 @@ import {
   getFeaturedProducts,
   getNewProducts,
   getOfferProducts,
-  getComboProducts,
+  getProductsByCategory,
   getRecommendedProducts,
 } from "@/lib/data/products";
 
@@ -21,7 +21,11 @@ export default function Home() {
       />
       <ProductSection title="Novedades" products={getNewProducts()} viewAllHref="/novedades" />
       <ProductSection title="Ofertas" products={getOfferProducts()} viewAllHref="/ofertas" />
-      <ProductSection title="Combos y kits" products={getComboProducts()} viewAllHref="/categorias/combos" />
+      <ProductSection
+        title="Sets de regalo"
+        products={getProductsByCategory("set-de-regalo")}
+        viewAllHref="/categorias/set-de-regalo"
+      />
       <ProductSection title="También te puede interesar" products={getRecommendedProducts()} />
     </>
   );

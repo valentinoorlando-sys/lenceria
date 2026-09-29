@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
+import { LogoMark } from "@/components/ui/LogoMark";
 
 export function Logo({ className }: { className?: string }) {
   return (
@@ -8,26 +9,7 @@ export function Logo({ className }: { className?: string }) {
       className={`flex items-center gap-2.5 ${className ?? ""}`}
       aria-label={siteConfig.brandName}
     >
-      <svg
-        viewBox="0 0 48 48"
-        width={38}
-        height={38}
-        role="img"
-        aria-hidden="true"
-      >
-        <circle cx="24" cy="24" r="23" fill="var(--color-wine)" />
-        <text
-          x="24"
-          y="32"
-          textAnchor="middle"
-          fontFamily="var(--font-brand-serif)"
-          fontSize="26"
-          fontStyle="italic"
-          fill="var(--color-cream)"
-        >
-          f
-        </text>
-      </svg>
+      <LogoMark size={38} />
       <span className="flex items-baseline gap-1">
         <span className="font-serif text-2xl italic tracking-wide text-ink">
           .{siteConfig.brandName.toLowerCase()}
