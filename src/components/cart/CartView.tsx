@@ -5,6 +5,7 @@ import { formatPrice } from "@/lib/config";
 import { useCart } from "@/lib/cart/context";
 import { buildOrderWhatsappUrl } from "@/lib/whatsapp";
 import { CartLineItem } from "@/components/cart/CartLineItem";
+import { BankTransferInfo } from "@/components/cart/BankTransferInfo";
 
 export function CartView() {
   const { items, subtotal, clearCart } = useCart();
@@ -66,6 +67,8 @@ export function CartView() {
         >
           Seguir comprando
         </Link>
+
+        <BankTransferInfo />
       </div>
     </div>
   );

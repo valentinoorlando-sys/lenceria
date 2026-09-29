@@ -6,6 +6,12 @@ export const siteConfig = {
   instagramHandle: "fratellistore.ok",
   instagramUrl: "https://www.instagram.com/fratellistore.ok",
   location: "Nueva Córdoba, Córdoba, Argentina",
+  bankTransfer: {
+    holder: "Evelyn Camila Selva",
+    cuit: "27405049088",
+    cvu: "0000003100067344455545",
+    alias: "hola.fratelli.tienda",
+  },
   currency: {
     locale: "es-AR",
     code: "ARS",
