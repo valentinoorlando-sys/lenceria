@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { StockShowcase } from "@/components/home/StockShowcase";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
 import { ProductSection } from "@/components/home/ProductSection";
 import {
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <StockShowcase />
       <CategoryGrid />
       <ProductSection
         title="Destacados"

@@ -63,6 +63,19 @@ export const categories: Category[] = [
     ],
     attributes: [{ key: "capacidad", label: "Tamaño", values: ["50 ml", "100 ml", "120 g"] }],
   },
+  {
+    slug: "skincare-nacional",
+    name: "Skincare Nacional",
+    description: "Cremas y mascarillas de marcas nacionales.",
+    image: "skincare-nacional",
+    order: 5,
+    active: true,
+    subcategories: [
+      { slug: "cremas", name: "Cremas" },
+      { slug: "mascarillas", name: "Mascarillas" },
+    ],
+    attributes: [{ key: "capacidad", label: "Tamaño", values: ["14 ml", "50 ml", "100 ml"] }],
+  },
 ];
 
 export function getActiveCategories(): Category[] {
