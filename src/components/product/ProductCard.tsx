@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { formatPrice } from "@/lib/config";
 import { discountPercent, isInStock, type Product } from "@/lib/types";
 import { ProductImagePlaceholder } from "@/components/ui/ProductImagePlaceholder";
@@ -13,10 +14,22 @@ export function ProductCard({ product }: { product: Product }) {
       className="group block overflow-hidden rounded-2xl border border-cream bg-bone transition-shadow hover:shadow-md"
     >
       <div className="relative">
-        <ProductImagePlaceholder
-          name={product.name}
-          className="w-full transition-transform duration-300 group-hover:scale-[1.02]"
-        />
+        {product.images.length > 0 ? (
+          <div className="relative aspect-square w-full overflow-hidden bg-cream">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              sizes="(min-width: 1024px) 25vw, 50vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+          </div>
+        ) : (
+          <ProductImagePlaceholder
+            name={product.name}
+            className="w-full transition-transform duration-300 group-hover:scale-[1.02]"
+          />
+        )}
 
         <div className="absolute left-2 top-2 flex flex-col gap-1">
           {discount && (

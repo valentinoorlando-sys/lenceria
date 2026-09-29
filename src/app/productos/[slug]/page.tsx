@@ -97,7 +97,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       </nav>
 
       <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-        <ProductGallery name={product.name} />
+        <ProductGallery name={product.name} images={product.images} />
 
         <div>
           <p className="text-xs uppercase tracking-wide text-ink/50">{product.brand}</p>
