@@ -11,7 +11,7 @@ export function Hero() {
           {siteConfig.tagline}
         </span>
         <h1 className="max-w-xl font-serif text-4xl italic leading-tight text-wine sm:text-6xl">
-          Sentite vos, en cada detalle
+          Todo lo que amamos, en un solo lugar
         </h1>
         <p className="max-w-md text-ink/70">
           Productos importados, skincare coreano y beauty, seleccionados
