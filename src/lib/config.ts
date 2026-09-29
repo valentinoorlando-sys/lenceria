@@ -12,6 +12,7 @@ export const siteConfig = {
     cuit: "27405049088",
     cvu: "0000003100067344455545",
     alias: "hola.fratelli.tienda",
+    discountPercent: 10,
   },
   currency: {
     locale: "es-AR",
@@ -26,6 +27,10 @@ export function formatPrice(amount: number): string {
     currency: siteConfig.currency.code,
     maximumFractionDigits: 0,
   }).format(amount);
+}
+
+export function transferPrice(price: number): number {
+  return Math.round(price * (1 - siteConfig.bankTransfer.discountPercent / 100));
 }
 
 export function buildWhatsappUrl(message: string): string {

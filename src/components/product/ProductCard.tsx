@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { formatPrice } from "@/lib/config";
+import { formatPrice, transferPrice } from "@/lib/config";
 import { discountPercent, isInStock, type Product } from "@/lib/types";
 import { ProductImagePlaceholder } from "@/components/ui/ProductImagePlaceholder";
 
@@ -64,6 +64,9 @@ export function ProductCard({ product }: { product: Product }) {
             </span>
           )}
         </div>
+        <p className="text-xs text-bronze">
+          {formatPrice(transferPrice(product.price))} con transferencia
+        </p>
       </div>
     </Link>
   );

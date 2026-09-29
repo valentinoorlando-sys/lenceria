@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductBySlug, getRecommendedProducts, getActiveProducts } from "@/lib/data/products";
-import { formatPrice, siteConfig } from "@/lib/config";
+import { formatPrice, siteConfig, transferPrice } from "@/lib/config";
 import { discountPercent, isInStock } from "@/lib/types";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { VariantSelector } from "@/components/product/VariantSelector";
@@ -116,6 +116,9 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               </>
             )}
           </div>
+          <p className="mt-1 text-sm text-bronze">
+            {formatPrice(transferPrice(product.price))} pagando por transferencia
+          </p>
 
           <p className="mt-4 text-ink/70">{product.description}</p>
 
