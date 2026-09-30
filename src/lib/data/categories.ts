@@ -22,16 +22,15 @@ export const categories: Category[] = [
   {
     slug: "victorias-secret",
     name: "Victoria's Secret",
-    description: "Body splash, body lotion, bombachas, corpiños y tops importados.",
+    description: "Body splash, body lotion, less, bralettes y tops importados.",
     image: "victorias-secret",
     order: 2,
     active: true,
     subcategories: [
       { slug: "body-splash", name: "Body Splash" },
       { slug: "body-lotion", name: "Body Lotion" },
-      { slug: "bombachas", name: "Bombachas" },
-      { slug: "corpinos", name: "Corpiños" },
-      { slug: "top", name: "Top" },
+      { slug: "less", name: "Less" },
+      { slug: "bralettes-tops", name: "Bralettes & Tops" },
     ],
     attributes: [
       { key: "talle", label: "Talle", values: ["S", "M", "L", "XL"] },
