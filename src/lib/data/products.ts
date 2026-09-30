@@ -14,7 +14,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Coconut Passion", capacidad: "250 ml" }, stock: 10 }],
   },
   {
     id: "p06",
@@ -29,7 +29,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad", "destacado"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Pure Seduction Brûlée", capacidad: "236 ml" }, stock: 10 }],
   },
   {
     id: "p16",
@@ -44,7 +44,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Velvet Petals Brûlée", capacidad: "250 ml" }, stock: 10 }],
   },
   {
     id: "p17",
@@ -59,7 +59,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Velvet Petals Brûlée", capacidad: "236 ml" }, stock: 10 }],
   },
   {
     id: "p18",
@@ -74,7 +74,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Velvet Petals", capacidad: "250 ml" }, stock: 10 }],
   },
   {
     id: "p19",
@@ -89,7 +89,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Velvet Petals Shimmer", capacidad: "236 ml" }, stock: 10 }],
   },
   {
     id: "p20",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Pistachio Crème", capacidad: "236 ml" }, stock: 10 }],
   },
   {
     id: "p21",
@@ -119,7 +119,7 @@ export const products: Product[] = [
     stock: 10,
     tags: ["novedad"],
     active: true,
-    variants: [],
+    variants: [{ id: "v1", attributes: { aroma: "Pure Seduction Shimmer", capacidad: "236 ml" }, stock: 10 }],
   },
   {
     id: "p22",

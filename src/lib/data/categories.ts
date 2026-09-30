@@ -35,8 +35,20 @@ export const categories: Category[] = [
     attributes: [
       { key: "talle", label: "Talle", values: ["S", "M", "L", "XL"] },
       { key: "color", label: "Color", values: ["Negro", "Rosa", "Blanco", "Estampado"] },
-      { key: "aroma", label: "Aroma", values: ["Coconut Passion", "Pure Seduction", "Love Spell", "Bare Vanilla"] },
-      { key: "capacidad", label: "Tamaño", values: ["250 ml", "414 ml"] },
+      {
+        key: "aroma",
+        label: "Aroma",
+        values: [
+          "Coconut Passion",
+          "Pure Seduction Brûlée",
+          "Pure Seduction Shimmer",
+          "Velvet Petals",
+          "Velvet Petals Brûlée",
+          "Velvet Petals Shimmer",
+          "Pistachio Crème",
+        ],
+      },
+      { key: "capacidad", label: "Tamaño", values: ["236 ml", "250 ml"] },
     ],
   },
   {
