@@ -4,6 +4,8 @@ export const siteConfig = {
   announcement: "Importados · Skincare · Beauty · Victoria's Secret",
   domain: "fratellistore.com.ar",
   whatsappNumber: "5493518553004",
+  orderNotificationEmail: "evelynselva34@gmail.com",
+  orderFromEmail: "pedidos@fratellistore.com.ar",
   instagramHandle: "fratellistore.ok",
   instagramUrl: "https://www.instagram.com/fratellistore.ok",
   location: "Nueva Córdoba, Córdoba, Argentina",

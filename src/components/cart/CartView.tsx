@@ -26,6 +26,26 @@ export function CartView() {
 
   const whatsappUrl = buildOrderWhatsappUrl(items, subtotal);
 
+  const notifyOrder = () => {
+    const payload = {
+      items: items.map((item) => ({
+        name: item.name,
+        brand: item.brand,
+        unitPrice: item.unitPrice,
+        quantity: item.quantity,
+        variantAttributes: item.variantAttributes,
+      })),
+      total: subtotal,
+    };
+    fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {});
+    clearCart();
+  };
+
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
       <div>
@@ -55,7 +75,7 @@ export function CartView() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => clearCart()}
+          onClick={notifyOrder}
           className="mt-5 flex w-full items-center justify-center rounded-full bg-wine px-6 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-wine-dark"
         >
           Realizar pedido por WhatsApp
