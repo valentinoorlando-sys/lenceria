@@ -53,15 +53,19 @@ export const categories: Category[] = [
   {
     slug: "skincare-coreano",
     name: "Skincare Coreano",
-    description: "Cremas y mascarillas de skincare coreano.",
+    description: "Cremas, tónicos, limpiadores y mascarillas de skincare coreano.",
     image: "skincare-coreano",
     order: 4,
     active: true,
     subcategories: [
       { slug: "cremas", name: "Cremas" },
+      { slug: "tonicos", name: "Tónicos" },
+      { slug: "limpiadores", name: "Limpiadores" },
       { slug: "mascarillas", name: "Mascarillas" },
     ],
-    attributes: [{ key: "capacidad", label: "Tamaño", values: ["50 ml", "100 ml", "120 g"] }],
+    attributes: [
+      { key: "capacidad", label: "Tamaño", values: ["50 ml", "55 g", "100 ml", "150 ml", "300 ml"] },
+    ],
   },
   {
     slug: "skincare-nacional",
