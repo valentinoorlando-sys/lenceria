@@ -33,8 +33,20 @@ export const categories: Category[] = [
       { slug: "bralettes-tops", name: "Bralettes & Tops" },
     ],
     attributes: [
-      { key: "talle", label: "Talle", values: ["S", "M", "L", "XL"] },
-      { key: "color", label: "Color", values: ["Negro", "Rosa", "Blanco", "Estampado"] },
+      { key: "talle", label: "Talle", values: ["S", "M", "L", "XL", "85"] },
+      {
+        key: "color",
+        label: "Color",
+        values: [
+          "Negro",
+          "Rosa",
+          "Blanco",
+          "Gris",
+          "Estampado",
+          "Leopardo",
+          "Floral Bordo",
+        ],
+      },
       {
         key: "aroma",
         label: "Aroma",
