@@ -519,6 +519,25 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { capacidad: "22 g" }, stock: 10 }],
   },
+  {
+    id: "p45",
+    slug: "set-mini-body-splash-shimmer",
+    name: "Set de 4 Mini Body Splash Shimmer",
+    brand: "Victoria's Secret",
+    categorySlug: "set-de-regalo",
+    subcategorySlug: "cajitas",
+    description:
+      "Set importado de 4 mini body splash con shimmer: Love Spell, Velvet Petals, Pure Seduction y Bare Vanilla, 75 ml cada uno. Presentación lista para regalar.",
+    images: [
+      "/images/products/vs-set-mini-shimmer-caja.jpeg",
+      "/images/products/vs-set-mini-shimmer-abierto.jpeg",
+    ],
+    price: 135000,
+    stock: 2,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: {}, stock: 2 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
