@@ -414,6 +414,28 @@ export const products: Product[] = [
       { id: "v2", attributes: { talle: "L", color: "Leopardo" }, stock: 1 },
     ],
   },
+  {
+    id: "p39",
+    slug: "less-parche-brillante-rosa",
+    name: "Less Parche Brillante Rosa",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, rosa con parche de strass brillante en la cintura.",
+    images: [
+      "/images/products/vs-less-parche-rosa-frente.jpeg",
+      "/images/products/vs-less-parche-rosa-dorso.jpeg",
+    ],
+    price: 61900,
+    stock: 3,
+    tags: ["novedad"],
+    active: true,
+    variants: [
+      { id: "v1", attributes: { talle: "S", color: "Rosa" }, stock: 1 },
+      { id: "v2", attributes: { talle: "M", color: "Rosa" }, stock: 1 },
+      { id: "v3", attributes: { talle: "L", color: "Rosa" }, stock: 1 },
+    ],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
