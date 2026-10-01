@@ -87,7 +87,7 @@ export const categories: Category[] = [
       { slug: "mascarillas", name: "Mascarillas" },
     ],
     attributes: [
-      { key: "capacidad", label: "Tamaño", values: ["50 ml", "55 g", "100 ml", "150 ml", "300 ml"] },
+      { key: "capacidad", label: "Tamaño", values: ["34 g", "50 ml", "55 g", "100 ml", "150 ml", "300 ml"] },
     ],
   },
   {
