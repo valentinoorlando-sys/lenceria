@@ -503,6 +503,22 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { capacidad: "50 ml" }, stock: 6 }],
   },
+  {
+    id: "p44",
+    slug: "medicube-pdrn-pink-vita-coating-mask",
+    name: "PDRN Pink Vita Coating Mask",
+    brand: "Medicube",
+    categorySlug: "skincare-coreano",
+    subcategorySlug: "mascarillas",
+    description:
+      "Mascarilla coreana con PDRN, sodium DNAJ, vitamina B12 y colágeno, textura coating para nutrir e iluminar. 22 g.",
+    images: ["/images/products/medicube-pdrn-pink-vita-mask.jpeg"],
+    price: 10600,
+    stock: 10,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "22 g" }, stock: 10 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
