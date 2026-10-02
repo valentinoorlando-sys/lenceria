@@ -775,6 +775,38 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "M", color: "Gris" }, stock: 1 }],
   },
+  {
+    id: "p59",
+    slug: "goldfish-colageno-hidrolizado",
+    name: "Colágeno Hidrolizado",
+    brand: "Goldfish",
+    categorySlug: "beauty",
+    subcategorySlug: "colageno",
+    description:
+      "Suplemento dietario en polvo a base de colágeno hidrolizado, vitamina C, calcio, magnesio y zinc. Sabor frutos tropicales. 200 g.",
+    images: ["/images/products/goldfish-colageno-hidrolizado.jpeg"],
+    price: 55000,
+    stock: 8,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Frutos Tropicales", capacidad: "200 g" }, stock: 8 }],
+  },
+  {
+    id: "p60",
+    slug: "vitawellness-citrato-magnesio",
+    name: "Citrato de Magnesio",
+    brand: "VitaWellness",
+    categorySlug: "beauty",
+    subcategorySlug: "magnesio",
+    description:
+      "Suplemento dietario en polvo a base de citrato de magnesio, vitamina C y zinc, de máxima absorción. Sabor multifruta. Rinde 60 tomas, 180 g.",
+    images: ["/images/products/vitawellness-citrato-magnesio.jpeg"],
+    price: 54000,
+    stock: 8,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Multifruta", capacidad: "180 g" }, stock: 8 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {

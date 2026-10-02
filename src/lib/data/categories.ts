@@ -13,10 +13,19 @@ export const categories: Category[] = [
       { slug: "proteina", name: "Proteína" },
       { slug: "hair-skin-nails", name: "Hair Skin Nails" },
       { slug: "matcha", name: "Matcha" },
+      { slug: "magnesio", name: "Magnesio" },
     ],
     attributes: [
-      { key: "aroma", label: "Sabor", values: ["Neutro", "Frutilla", "Vainilla", "Limón"] },
-      { key: "capacidad", label: "Presentación", values: ["30 sachets", "150 g", "300 g"] },
+      {
+        key: "aroma",
+        label: "Sabor",
+        values: ["Neutro", "Frutilla", "Vainilla", "Limón", "Frutos Tropicales", "Multifruta"],
+      },
+      {
+        key: "capacidad",
+        label: "Presentación",
+        values: ["30 sachets", "150 g", "180 g", "200 g", "300 g"],
+      },
     ],
   },
   {
