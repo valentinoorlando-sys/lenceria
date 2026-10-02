@@ -29,6 +29,8 @@ export const categories: Category[] = [
           "Frutos Tropicales",
           "Multifruta",
           "Naranja",
+          "Frutos Rojos",
+          "Maracuyá",
         ],
       },
       {

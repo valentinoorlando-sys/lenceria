@@ -839,6 +839,38 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { aroma: "Frutilla", capacidad: "40 g" }, stock: 10 }],
   },
+  {
+    id: "p63",
+    slug: "goldfish-colageno-frutos-rojos",
+    name: "Colágeno Hidrolizado Frutos Rojos",
+    brand: "Goldfish",
+    categorySlug: "beauty",
+    subcategorySlug: "colageno",
+    description:
+      "Suplemento dietario en polvo a base de colágeno hidrolizado, ácido hialurónico, vitamina C, cúrcuma y magnesio. Favorece la piel, el bienestar articular y la hidratación. Sabor frutos rojos. 200 g.",
+    images: ["/images/products/goldfish-colageno-frutos-rojos.jpeg"],
+    price: 55000,
+    stock: 8,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Frutos Rojos", capacidad: "200 g" }, stock: 8 }],
+  },
+  {
+    id: "p64",
+    slug: "delhitea-amazonian-green",
+    name: "Amazonian Green",
+    brand: "Delhi Tea Collection",
+    categorySlug: "beauty",
+    subcategorySlug: "te",
+    description:
+      "Té verde en hebras con menta, jengibre y maracuyá, para infusión. Industria argentina. Contenido neto 40 g, rinde 20 tazas.",
+    images: ["/images/products/delhitea-amazonian-green.jpeg"],
+    price: 17600,
+    stock: 10,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Maracuyá", capacidad: "40 g" }, stock: 10 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
