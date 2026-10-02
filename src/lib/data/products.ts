@@ -785,7 +785,7 @@ export const products: Product[] = [
     description:
       "Suplemento dietario en polvo a base de colágeno hidrolizado, vitamina C, calcio, magnesio y zinc. Sabor frutos tropicales. 200 g.",
     images: ["/images/products/goldfish-colageno-hidrolizado.jpeg"],
-    price: 55000,
+    price: 50000,
     stock: 8,
     tags: ["novedad"],
     active: true,
@@ -817,7 +817,7 @@ export const products: Product[] = [
     description:
       "Suplemento dietario en polvo a base de calcio y fibras provenientes del psyllium, ayuda a reducir la inflamación y favorece el equilibrio intestinal. Sabor naranja. 200 g.",
     images: ["/images/products/goldfish-psyllium.jpeg"],
-    price: 55000,
+    price: 50000,
     stock: 8,
     tags: ["novedad"],
     active: true,
@@ -849,7 +849,7 @@ export const products: Product[] = [
     description:
       "Suplemento dietario en polvo a base de colágeno hidrolizado, ácido hialurónico, vitamina C, cúrcuma y magnesio. Favorece la piel, el bienestar articular y la hidratación. Sabor frutos rojos. 200 g.",
     images: ["/images/products/goldfish-colageno-frutos-rojos.jpeg"],
-    price: 55000,
+    price: 50000,
     stock: 8,
     tags: ["novedad", "destacado"],
     active: true,
@@ -881,7 +881,7 @@ export const products: Product[] = [
     description:
       "Café tostado molido de origen colombiano con colágeno hidrolizado tipo I, II y III y melena de león. Sin azúcar agregada. Rinde 36 tazas, 180 g.",
     images: ["/images/products/vitawellness-cafe-colageno-melena.jpeg"],
-    price: 57000,
+    price: 50000,
     stock: 8,
     tags: ["novedad", "destacado"],
     active: true,
