@@ -913,7 +913,7 @@ export const products: Product[] = [
     description:
       "Té verde matcha con cúrcuma, jengibre, pimienta negra y sabor miel, para infusión en polvo. Contenido neto 50 g, rinde 25 tazas.",
     images: ["/images/products/delhitea-golden-matcha.jpeg"],
-    price: 28600,
+    price: 25000,
     stock: 8,
     tags: ["novedad", "destacado"],
     active: true,
