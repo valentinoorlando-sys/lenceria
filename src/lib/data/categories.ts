@@ -34,6 +34,8 @@ export const categories: Category[] = [
           "Maracuyá",
           "Manzana",
           "Miel",
+          "Hibisco",
+          "Menta",
         ],
       },
       {
@@ -85,6 +87,7 @@ export const categories: Category[] = [
           "Velvet Petals Brûlée",
           "Velvet Petals Shimmer",
           "Pistachio Crème",
+          "Vanilla Mousse",
         ],
       },
       { key: "capacidad", label: "Tamaño", values: ["236 ml", "250 ml"] },
