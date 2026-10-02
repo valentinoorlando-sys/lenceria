@@ -570,6 +570,22 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: {}, stock: 2 }],
   },
+  {
+    id: "p48",
+    slug: "set-mini-love-spell",
+    name: "Set Mini Love Spell",
+    brand: "Victoria's Secret",
+    categorySlug: "set-de-regalo",
+    subcategorySlug: "cajitas",
+    description:
+      "Set importado Love Spell con body splash y body lotion, 75 ml cada uno. Presentación lista para regalar.",
+    images: ["/images/products/vs-set-mini-love-spell.jpeg"],
+    price: 65000,
+    stock: 2,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: {}, stock: 2 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
