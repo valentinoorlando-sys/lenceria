@@ -538,6 +538,22 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: {}, stock: 2 }],
   },
+  {
+    id: "p46",
+    slug: "set-mini-body-splash-clasico",
+    name: "Set de 4 Mini Body Splash Clásico",
+    brand: "Victoria's Secret",
+    categorySlug: "set-de-regalo",
+    subcategorySlug: "cajitas",
+    description:
+      "Set importado de 4 mini body splash clásicos: Love Spell, Pure Seduction, Velvet Petals y Bare Vanilla, 75 ml cada uno. Oferta por detalle estético en la caja (los frascos están en perfecto estado).",
+    images: ["/images/products/vs-set-mini-clasico.jpeg"],
+    price: 105000,
+    stock: 1,
+    tags: ["oferta"],
+    active: true,
+    variants: [{ id: "v1", attributes: {}, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
