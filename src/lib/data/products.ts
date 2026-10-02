@@ -602,6 +602,25 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { capacidad: "10 ampollas" }, stock: 5 }],
   },
+  {
+    id: "p50",
+    slug: "boxer-blanco-logo",
+    name: "Boxer Blanco Logo",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Boxer importado blanco con logo en la cintura, mayor cobertura y tela suave.",
+    images: [
+      "/images/products/vs-boxer-blanco-m-frente.jpeg",
+      "/images/products/vs-boxer-blanco-m-dorso.jpeg",
+      "/images/products/vs-boxer-blanco-m-flat.jpeg",
+    ],
+    price: 50000,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "M", color: "Blanco" }, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
