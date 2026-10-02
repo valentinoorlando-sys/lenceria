@@ -757,6 +757,24 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "XL", color: "Nude" }, stock: 1 }],
   },
+  {
+    id: "p58",
+    slug: "less-parche-gris",
+    name: "Less Parche Gris",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, gris jaspeada con parche de strass VS en la cintura.",
+    images: [
+      "/images/products/vs-less-parche-gris-frente.jpeg",
+      "/images/products/vs-less-parche-gris-dorso.jpeg",
+    ],
+    price: 43400,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "M", color: "Gris" }, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
