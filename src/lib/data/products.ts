@@ -807,6 +807,38 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { aroma: "Multifruta", capacidad: "180 g" }, stock: 8 }],
   },
+  {
+    id: "p61",
+    slug: "goldfish-psyllium",
+    name: "Psyllium",
+    brand: "Goldfish",
+    categorySlug: "beauty",
+    subcategorySlug: "psyllium",
+    description:
+      "Suplemento dietario en polvo a base de calcio y fibras provenientes del psyllium, ayuda a reducir la inflamación y favorece el equilibrio intestinal. Sabor naranja. 200 g.",
+    images: ["/images/products/goldfish-psyllium.jpeg"],
+    price: 55000,
+    stock: 8,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Naranja", capacidad: "200 g" }, stock: 8 }],
+  },
+  {
+    id: "p62",
+    slug: "delhitea-green-whisper",
+    name: "Green Whisper",
+    brand: "Delhi Tea Premium",
+    categorySlug: "beauty",
+    subcategorySlug: "te",
+    description:
+      "Té verde en hebras con lemongrass y frutilla, para infusión. Contenido neto 40 g, rinde 20 infusiones.",
+    images: ["/images/products/delhitea-green-whisper.jpeg"],
+    price: 17600,
+    stock: 10,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Frutilla", capacidad: "40 g" }, stock: 10 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
