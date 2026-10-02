@@ -645,6 +645,44 @@ export const products: Product[] = [
       { id: "v2", attributes: { talle: "XS", color: "Negro" }, stock: 1 },
     ],
   },
+  {
+    id: "p52",
+    slug: "bralette-racerback-gris",
+    name: "Bralette Racerback Gris",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "bralettes-tops",
+    description:
+      "Bralette deportiva de algodón gris jaspeado, espalda nadadora y logo en la cintura. Talle S.",
+    images: [
+      "/images/products/vs-bralette-racerback-gris-frente.jpeg",
+      "/images/products/vs-bralette-racerback-gris-dorso.jpeg",
+    ],
+    price: 139000,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "S", color: "Gris" }, stock: 1 }],
+  },
+  {
+    id: "p53",
+    slug: "bralette-racerback-blanco",
+    name: "Bralette Racerback Blanco",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "bralettes-tops",
+    description:
+      "Bralette deportiva de algodón blanco, espalda nadadora y logo en la cintura. Talle S.",
+    images: [
+      "/images/products/vs-bralette-racerback-blanco-frente.jpeg",
+      "/images/products/vs-bralette-racerback-blanco-dorso.jpeg",
+    ],
+    price: 139000,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "S", color: "Blanco" }, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
