@@ -621,6 +621,30 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "M", color: "Blanco" }, stock: 1 }],
   },
+  {
+    id: "p51",
+    slug: "pink-top-corse",
+    name: "Top Corsé Victoria's Secret PINK",
+    brand: "Victoria's Secret PINK",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "bralettes-tops",
+    description:
+      "Top estilo corsé con costuras marcadas y breteles anchos, en algodón acanalado. Disponible en topo y negro, talle XS.",
+    images: [
+      "/images/products/vs-pink-top-corse-topo-frente.jpeg",
+      "/images/products/vs-pink-top-corse-topo-flat.jpeg",
+      "/images/products/vs-pink-top-corse-negro-frente.jpeg",
+      "/images/products/vs-pink-top-corse-negro-flat.jpeg",
+    ],
+    price: 90000,
+    stock: 2,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [
+      { id: "v1", attributes: { talle: "XS", color: "Topo" }, stock: 1 },
+      { id: "v2", attributes: { talle: "XS", color: "Negro" }, stock: 1 },
+    ],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
