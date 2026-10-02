@@ -719,6 +719,44 @@ export const products: Product[] = [
       { id: "v2", attributes: { talle: "L", color: "Corazones" }, stock: 1 },
     ],
   },
+  {
+    id: "p56",
+    slug: "less-parche-leopardo",
+    name: "Less Parche Leopardo",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description:
+      "Bombacha tipo less importada, estampado animal print leopardo con parche de strass VS en la cintura.",
+    images: [
+      "/images/products/vs-less-parche-leopardo-frente.jpeg",
+      "/images/products/vs-less-parche-leopardo-dorso.jpeg",
+    ],
+    price: 43400,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "L", color: "Leopardo" }, stock: 1 }],
+  },
+  {
+    id: "p57",
+    slug: "less-clasica-nude",
+    name: "Less Clásica Nude",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, color nude con logo en la cintura.",
+    images: [
+      "/images/products/vs-less-nude-frente.jpeg",
+      "/images/products/vs-less-nude-dorso.jpeg",
+      "/images/products/vs-less-nude-flat.jpeg",
+    ],
+    price: 37900,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "XL", color: "Nude" }, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
