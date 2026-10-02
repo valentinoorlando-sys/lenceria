@@ -903,6 +903,38 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { aroma: "Manzana", capacidad: "60 g" }, stock: 10 }],
   },
+  {
+    id: "p67",
+    slug: "delhitea-golden-matcha",
+    name: "Golden Matcha",
+    brand: "Delhi Tea Premium",
+    categorySlug: "beauty",
+    subcategorySlug: "matcha",
+    description:
+      "Té verde matcha con cúrcuma, jengibre, pimienta negra y sabor miel, para infusión en polvo. Contenido neto 50 g, rinde 25 tazas.",
+    images: ["/images/products/delhitea-golden-matcha.jpeg"],
+    price: 28600,
+    stock: 8,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Miel", capacidad: "50 g" }, stock: 8 }],
+  },
+  {
+    id: "p68",
+    slug: "delhitea-sweet-flower",
+    name: "Sweet Flower",
+    brand: "Delhi Tea Premium",
+    categorySlug: "beauty",
+    subcategorySlug: "te",
+    description:
+      "Mezcla de manzanilla, hierbas y pétalos de rosas, sabor vainilla y miel, para infusión en hebras. Contenido neto 30 g, rinde 15 infusiones.",
+    images: ["/images/products/delhitea-sweet-flower.jpeg"],
+    price: 17600,
+    stock: 10,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Vainilla", capacidad: "30 g" }, stock: 10 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
