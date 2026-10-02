@@ -683,6 +683,42 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "S", color: "Blanco" }, stock: 1 }],
   },
+  {
+    id: "p54",
+    slug: "top-corto-manga-corta",
+    name: "Top Corto de Algodón Manga Corta",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "bralettes-tops",
+    description: "Top corto de algodón con manga corta y logo en la cintura. Talle S.",
+    images: [
+      "/images/products/vs-top-corto-manga-corta-frente.jpeg",
+      "/images/products/vs-top-corto-manga-corta-dorso.jpeg",
+    ],
+    price: 145000,
+    stock: 1,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "S", color: "Negro" }, stock: 1 }],
+  },
+  {
+    id: "p55",
+    slug: "less-corazones",
+    name: "Less Clásica Corazones",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, estampado de corazones con logo en la cintura.",
+    images: ["/images/products/vs-less-corazones-frente.jpeg", "/images/products/vs-less-corazones-dorso.jpeg"],
+    price: 37900,
+    stock: 2,
+    tags: ["novedad"],
+    active: true,
+    variants: [
+      { id: "v1", attributes: { talle: "M", color: "Corazones" }, stock: 1 },
+      { id: "v2", attributes: { talle: "L", color: "Corazones" }, stock: 1 },
+    ],
+  },
 ];
 
 export function getActiveProducts(): Product[] {

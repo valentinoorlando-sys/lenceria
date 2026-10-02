@@ -46,6 +46,7 @@ export const categories: Category[] = [
           "Estampado",
           "Leopardo",
           "Floral Bordo",
+          "Corazones",
         ],
       },
       {
