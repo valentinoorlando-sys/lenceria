@@ -586,6 +586,22 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: {}, stock: 2 }],
   },
+  {
+    id: "p49",
+    slug: "medicube-pdrn-99-high-purity-salmon",
+    name: "PDRN 99% High Purity Salmon",
+    brand: "Medicube",
+    categorySlug: "skincare-coreano",
+    subcategorySlug: "cremas",
+    description:
+      "Ampollas coreanas con PDRN de salmón de alta pureza (99%), caja con 10 ampollas para una piel más firme e hidratada.",
+    images: ["/images/products/medicube-pdrn-99-salmon-ampoule.jpeg"],
+    price: 62000,
+    stock: 5,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "10 ampollas" }, stock: 5 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
