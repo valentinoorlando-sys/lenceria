@@ -16,6 +16,7 @@ export const categories: Category[] = [
       { slug: "magnesio", name: "Magnesio" },
       { slug: "psyllium", name: "Psyllium" },
       { slug: "te", name: "Té" },
+      { slug: "cafe", name: "Café" },
     ],
     attributes: [
       {
@@ -31,12 +32,13 @@ export const categories: Category[] = [
           "Naranja",
           "Frutos Rojos",
           "Maracuyá",
+          "Manzana",
         ],
       },
       {
         key: "capacidad",
         label: "Presentación",
-        values: ["30 sachets", "40 g", "150 g", "180 g", "200 g", "300 g"],
+        values: ["30 sachets", "40 g", "60 g", "150 g", "180 g", "200 g", "300 g"],
       },
     ],
   },

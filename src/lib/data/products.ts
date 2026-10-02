@@ -871,6 +871,38 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { aroma: "Maracuyá", capacidad: "40 g" }, stock: 10 }],
   },
+  {
+    id: "p65",
+    slug: "vitawellness-cafe-colageno-melena",
+    name: "Café Tostado Colágeno & Melena",
+    brand: "VitaWellness",
+    categorySlug: "beauty",
+    subcategorySlug: "cafe",
+    description:
+      "Café tostado molido de origen colombiano con colágeno hidrolizado tipo I, II y III y melena de león. Sin azúcar agregada. Rinde 36 tazas, 180 g.",
+    images: ["/images/products/vitawellness-cafe-colageno-melena.jpeg"],
+    price: 57000,
+    stock: 8,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Neutro", capacidad: "180 g" }, stock: 8 }],
+  },
+  {
+    id: "p66",
+    slug: "delhitea-cinnamon-rosehips",
+    name: "Cinnamon & Rosehips Fresh",
+    brand: "Delhi Tea Premium",
+    categorySlug: "beauty",
+    subcategorySlug: "te",
+    description:
+      "Mezcla de flores y frutas con canela, sabor manzana, para infusión en hebras. Contenido neto 60 g, rinde 30 infusiones.",
+    images: ["/images/products/delhitea-cinnamon-rosehips.jpeg"],
+    price: 17600,
+    stock: 10,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { aroma: "Manzana", capacidad: "60 g" }, stock: 10 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
