@@ -17,7 +17,6 @@ export const categories: Category[] = [
       { slug: "psyllium", name: "Psyllium" },
       { slug: "te", name: "Té" },
       { slug: "cafe", name: "Café" },
-      { slug: "labios", name: "Labios" },
     ],
     attributes: [
       {
@@ -37,7 +36,6 @@ export const categories: Category[] = [
           "Miel",
           "Hibisco",
           "Menta",
-          "Cereza",
         ],
       },
       {
@@ -45,7 +43,6 @@ export const categories: Category[] = [
         label: "Presentación",
         values: [
           "30 sachets",
-          "10 g",
           "30 g",
           "40 g",
           "50 g",
@@ -54,7 +51,6 @@ export const categories: Category[] = [
           "180 g",
           "200 g",
           "300 g",
-          "Barra",
         ],
       },
     ],
@@ -178,6 +174,19 @@ export const categories: Category[] = [
     ],
     attributes: [
       { key: "capacidad", label: "Tamaño", values: ["14 ml", "20 ml", "30 ml", "50 ml", "100 ml"] },
+    ],
+  },
+  {
+    slug: "labios",
+    name: "Labios",
+    description: "Bálsamos labiales importados.",
+    image: "labios",
+    order: 6,
+    active: true,
+    subcategories: [{ slug: "balsamos", name: "Bálsamos" }],
+    attributes: [
+      { key: "aroma", label: "Sabor", values: ["Cereza"] },
+      { key: "capacidad", label: "Presentación", values: ["10 g", "Barra"] },
     ],
   },
 ];

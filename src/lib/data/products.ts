@@ -1067,8 +1067,8 @@ export const products: Product[] = [
     slug: "carmex-lip-balm-tubo-cherry",
     name: "Lip Balm Fresh Cherry Tubo",
     brand: "Carmex",
-    categorySlug: "beauty",
-    subcategorySlug: "labios",
+    categorySlug: "labios",
+    subcategorySlug: "balsamos",
     description:
       "Bálsamo labial hidratante en tubo, con protección solar SPF 15 y sabor cereza. Resistente al agua (80 min).",
     images: ["/images/products/carmex-lip-balm-tubo-cherry.jpeg"],
@@ -1083,8 +1083,8 @@ export const products: Product[] = [
     slug: "carmex-lip-balm-barra-cherry",
     name: "Lip Balm Cherry en Barra",
     brand: "Carmex",
-    categorySlug: "beauty",
-    subcategorySlug: "labios",
+    categorySlug: "labios",
+    subcategorySlug: "balsamos",
     description:
       "Bálsamo labial medicado en barra, con protección solar SPF 15 y sabor cereza. Alivia y protege labios resecos.",
     images: ["/images/products/carmex-lip-balm-barra-cherry.jpeg"],
