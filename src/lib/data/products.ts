@@ -1353,6 +1353,40 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { capacidad: "23 g" }, stock: 15 }],
   },
+  {
+    id: "p95",
+    slug: "less-azul-marino",
+    name: "Less Clásica Azul Marino",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, azul marino con logo en la cintura.",
+    images: [
+      "/images/products/vs-less-azul-marino-frente.jpeg",
+      "/images/products/vs-less-azul-marino-dorso.jpeg",
+    ],
+    price: 37900,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "XL", color: "Azul Marino" }, stock: 1 }],
+  },
+  {
+    id: "p96",
+    slug: "mizon-joyful-time-snail-mask",
+    name: "Joyful Time Essence Mask Snail",
+    brand: "Mizon",
+    categorySlug: "skincare-coreano",
+    subcategorySlug: "mascarillas",
+    description:
+      "Mascarilla coreana en hoja con extracto de caracol, revitaliza y nutre la piel dañada. 23 g.",
+    images: ["/images/products/mizon-joyful-time-snail-mask.jpeg"],
+    price: 7000,
+    stock: 15,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "23 g" }, stock: 15 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
