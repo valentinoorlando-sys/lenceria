@@ -996,6 +996,57 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { aroma: "Pure Seduction Brûlée", capacidad: "250 ml" }, stock: 10 }],
   },
+  {
+    id: "p73",
+    slug: "vichy-liftactiv-vitamin-c-serum",
+    name: "Liftactiv Supreme Vitamin C Serum",
+    brand: "Vichy",
+    categorySlug: "skincare-nacional",
+    subcategorySlug: "cremas",
+    description:
+      "Sérum corrector iluminador con 15% de vitamina C pura, pycnogenol y vitamina E. Impulsa la defensa antioxidante, ilumina la piel en 10 días y corrige líneas finas. Fórmula hipoalergénica, sin fragancia. 20 ml.",
+    images: ["/images/products/vichy-liftactiv-vitamin-c-serum.jpeg"],
+    price: 120000,
+    stock: 4,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "20 ml" }, stock: 4 }],
+  },
+  {
+    id: "p74",
+    slug: "vichy-liftactiv-ha-serum",
+    name: "Liftactiv Supreme H.A. Epidermic Filler",
+    brand: "Vichy",
+    categorySlug: "skincare-nacional",
+    subcategorySlug: "cremas",
+    description:
+      "Sérum antiedad con 1.5% de ácido hialurónico puro y efecto relleno visible. Reduce la apariencia de arrugas y aporta un efecto más lleno a la piel. Apto para rostro y contorno de ojos, sin fragancia. Uso día/noche, todo tipo de piel. 30 ml.",
+    images: ["/images/products/vichy-liftactiv-ha-serum.jpeg"],
+    price: 120000,
+    stock: 4,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "30 ml" }, stock: 4 }],
+  },
+  {
+    id: "p75",
+    slug: "skin1004-centella-ampoule-kit",
+    name: "Set Centella Ampoule Kit",
+    brand: "SKIN1004",
+    categorySlug: "skincare-coreano",
+    subcategorySlug: "cremas",
+    description:
+      "Kit de 4 sérums en ampolla con centella asiática pura de Madagascar: calmante, para manchas (poremizing), para acné (tea-trica) y para poros/luminosidad (tone brightening). 4 x 30 ml.",
+    images: [
+      "/images/products/skin1004-centella-ampoule-kit.jpeg",
+      "/images/products/skin1004-centella-ampoule-kit-detalle.jpeg",
+    ],
+    price: 125000,
+    stock: 3,
+    tags: ["novedad", "destacado"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "Kit 4x30 ml" }, stock: 3 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {

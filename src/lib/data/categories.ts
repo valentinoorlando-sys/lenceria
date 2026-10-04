@@ -120,14 +120,24 @@ export const categories: Category[] = [
       {
         key: "capacidad",
         label: "Tamaño",
-        values: ["10 ampollas", "22 g", "34 g", "50 ml", "55 g", "100 ml", "150 ml", "300 ml"],
+        values: [
+          "10 ampollas",
+          "22 g",
+          "34 g",
+          "50 ml",
+          "55 g",
+          "100 ml",
+          "150 ml",
+          "300 ml",
+          "Kit 4x30 ml",
+        ],
       },
     ],
   },
   {
     slug: "skincare-nacional",
-    name: "Skincare Nacional",
-    description: "Cremas y mascarillas de marcas nacionales.",
+    name: "Skincare Premium",
+    description: "Cremas, sérums y mascarillas de otras marcas premium e importadas.",
     image: "skincare-nacional",
     order: 5,
     active: true,
@@ -135,7 +145,9 @@ export const categories: Category[] = [
       { slug: "cremas", name: "Cremas" },
       { slug: "mascarillas", name: "Mascarillas" },
     ],
-    attributes: [{ key: "capacidad", label: "Tamaño", values: ["14 ml", "50 ml", "100 ml"] }],
+    attributes: [
+      { key: "capacidad", label: "Tamaño", values: ["14 ml", "20 ml", "30 ml", "50 ml", "100 ml"] },
+    ],
   },
 ];
 
