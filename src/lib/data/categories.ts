@@ -17,6 +17,7 @@ export const categories: Category[] = [
       { slug: "psyllium", name: "Psyllium" },
       { slug: "te", name: "Té" },
       { slug: "cafe", name: "Café" },
+      { slug: "labios", name: "Labios" },
     ],
     attributes: [
       {
@@ -36,12 +37,25 @@ export const categories: Category[] = [
           "Miel",
           "Hibisco",
           "Menta",
+          "Cereza",
         ],
       },
       {
         key: "capacidad",
         label: "Presentación",
-        values: ["30 sachets", "30 g", "40 g", "50 g", "60 g", "150 g", "180 g", "200 g", "300 g"],
+        values: [
+          "30 sachets",
+          "10 g",
+          "30 g",
+          "40 g",
+          "50 g",
+          "60 g",
+          "150 g",
+          "180 g",
+          "200 g",
+          "300 g",
+          "Barra",
+        ],
       },
     ],
   },
@@ -88,6 +102,7 @@ export const categories: Category[] = [
           "Velvet Petals Shimmer",
           "Pistachio Crème",
           "Vanilla Mousse",
+          "Bare Vanilla Shimmer",
         ],
       },
       { key: "capacidad", label: "Tamaño", values: ["236 ml", "250 ml"] },
@@ -100,7 +115,10 @@ export const categories: Category[] = [
     image: "set-de-regalo",
     order: 3,
     active: true,
-    subcategories: [{ slug: "cajitas", name: "Cajitas" }],
+    subcategories: [
+      { slug: "cajitas", name: "Cajitas" },
+      { slug: "bolsas", name: "Bolsas" },
+    ],
     attributes: [],
   },
   {
@@ -123,6 +141,7 @@ export const categories: Category[] = [
         values: [
           "10 ampollas",
           "22 g",
+          "23 ml",
           "34 g",
           "50 ml",
           "55 g",
