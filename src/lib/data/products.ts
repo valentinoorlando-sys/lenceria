@@ -1319,6 +1319,40 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "XL", color: "Nude" }, stock: 1 }],
   },
+  {
+    id: "p93",
+    slug: "less-parche-negro",
+    name: "Less Parche Negro",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, negra con parche de strass VS en la cintura.",
+    images: [
+      "/images/products/vs-less-parche-negro-frente.jpeg",
+      "/images/products/vs-less-parche-negro-dorso.jpeg",
+    ],
+    price: 43400,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "L", color: "Negro" }, stock: 1 }],
+  },
+  {
+    id: "p94",
+    slug: "mizon-joyful-time-pomegranate-mask",
+    name: "Joyful Time Essence Mask Pomegranate",
+    brand: "Mizon",
+    categorySlug: "skincare-coreano",
+    subcategorySlug: "mascarillas",
+    description:
+      "Mascarilla coreana en hoja con esencia de granada, aporta vitalidad y firmeza a la piel. 23 g.",
+    images: ["/images/products/mizon-joyful-time-pomegranate-mask.jpeg"],
+    price: 7000,
+    stock: 15,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { capacidad: "23 g" }, stock: 15 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {

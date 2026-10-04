@@ -149,6 +149,7 @@ export const categories: Category[] = [
         values: [
           "10 ampollas",
           "22 g",
+          "23 g",
           "23 ml",
           "24 ml",
           "25 ml",
