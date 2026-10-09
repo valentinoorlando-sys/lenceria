@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { formatPrice } from "@/lib/config";
+import { estimateShipping, formatPrice, siteConfig } from "@/lib/config";
 import { useCart } from "@/lib/cart/context";
 import { buildOrderWhatsappUrl } from "@/lib/whatsapp";
 import { CartLineItem } from "@/components/cart/CartLineItem";
@@ -12,6 +12,9 @@ export function CartView() {
   const { items, subtotal, clearCart } = useCart();
   const [mpLoading, setMpLoading] = useState(false);
   const [mpError, setMpError] = useState<string | null>(null);
+  const quantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  const shipping = estimateShipping(quantity);
+  const total = subtotal + shipping;
 
   if (items.length === 0) {
     return (
@@ -38,7 +41,8 @@ export function CartView() {
         quantity: item.quantity,
         variantAttributes: item.variantAttributes,
       })),
-      total: subtotal,
+      total,
+      shipping,
     };
     fetch("/api/orders", {
       method: "POST",
@@ -93,10 +97,17 @@ export function CartView() {
           <span>Subtotal</span>
           <span>{formatPrice(subtotal)}</span>
         </div>
+        <div className="mt-1.5 flex items-center justify-between text-sm text-ink/70">
+          <span>Envío estimado ({siteConfig.shipping.carrier})</span>
+          <span>{formatPrice(shipping)}</span>
+        </div>
         <div className="mt-2 flex items-center justify-between border-t border-cream pt-3 text-base font-medium text-ink">
           <span>Total</span>
-          <span className="text-wine">{formatPrice(subtotal)}</span>
+          <span className="text-wine">{formatPrice(total)}</span>
         </div>
+        <p className="mt-1 text-xs text-ink/50">
+          El envío es un costo estimado según la cantidad de productos.
+        </p>
 
         <a
           href={whatsappUrl}

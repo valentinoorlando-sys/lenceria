@@ -1,7 +1,7 @@
-import { buildWhatsappUrl, formatPrice } from "@/lib/config";
+import { buildWhatsappUrl, estimateShipping, formatPrice, siteConfig } from "@/lib/config";
 import type { CartItem } from "@/lib/cart/context";
 
-export function buildOrderMessage(items: CartItem[], total: number): string {
+export function buildOrderMessage(items: CartItem[], subtotal: number): string {
   const lines = ["Hola! Quiero realizar este pedido:", ""];
 
   for (const item of items) {
@@ -14,11 +14,16 @@ export function buildOrderMessage(items: CartItem[], total: number): string {
     lines.push("");
   }
 
-  lines.push(`TOTAL: ${formatPrice(total)}`);
+  const quantity = items.reduce((sum, i) => sum + i.quantity, 0);
+  const shipping = estimateShipping(quantity);
+
+  lines.push(`Subtotal: ${formatPrice(subtotal)}`);
+  lines.push(`Envío estimado (${siteConfig.shipping.carrier}): ${formatPrice(shipping)}`);
+  lines.push(`TOTAL: ${formatPrice(subtotal + shipping)}`);
 
   return lines.join("\n");
 }
 
-export function buildOrderWhatsappUrl(items: CartItem[], total: number): string {
-  return buildWhatsappUrl(buildOrderMessage(items, total));
+export function buildOrderWhatsappUrl(items: CartItem[], subtotal: number): string {
+  return buildWhatsappUrl(buildOrderMessage(items, subtotal));
 }

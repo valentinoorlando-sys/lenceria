@@ -13,6 +13,7 @@ interface OrderItemPayload {
 interface OrderPayload {
   items: OrderItemPayload[];
   total: number;
+  shipping?: number;
   paymentMethod?: string;
 }
 
@@ -41,6 +42,9 @@ function buildOrderEmailHtml(payload: OrderPayload): string {
     })
     .join("");
 
+  const shipping = payload.shipping ?? 0;
+  const productsSubtotal = payload.total - shipping;
+
   return `
     <div style="font-family:sans-serif;max-width:560px;margin:0 auto;">
       <h2 style="color:#6b0f3a;">Nuevo pedido — ${siteConfig.brandName}</h2>
@@ -54,9 +58,14 @@ function buildOrderEmailHtml(payload: OrderPayload): string {
         </thead>
         <tbody>${rows}</tbody>
       </table>
-      <p style="text-align:right;font-size:18px;margin-top:12px;">
+      <p style="text-align:right;font-size:14px;margin-top:12px;color:#666;">
+        Envío estimado (${siteConfig.shipping.carrier}): ${formatPrice(shipping)}
+      </p>
+      <p style="text-align:right;font-size:18px;margin-top:4px;">
         <strong>Total: ${formatPrice(payload.total)}</strong><br/>
-        <span style="font-size:13px;color:#a0526d;">${formatPrice(transferPrice(payload.total))} si paga por transferencia</span>
+        <span style="font-size:13px;color:#a0526d;">
+          ${formatPrice(transferPrice(productsSubtotal) + shipping)} si paga por transferencia
+        </span>
       </p>
       <p style="color:#666;font-size:13px;">
         ${

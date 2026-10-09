@@ -16,6 +16,14 @@ export const siteConfig = {
     alias: "hola.fratelli.tienda",
     discountPercent: 10,
   },
+  shipping: {
+    carrier: "Correo Argentino",
+    tiers: [
+      { maxQty: 2, label: "Liviano", cost: 5500 },
+      { maxQty: 5, label: "Medio", cost: 8500 },
+      { maxQty: Infinity, label: "Pesado", cost: 12000 },
+    ],
+  },
   currency: {
     locale: "es-AR",
     code: "ARS",
@@ -33,6 +41,11 @@ export function formatPrice(amount: number): string {
 
 export function transferPrice(price: number): number {
   return Math.round(price * (1 - siteConfig.bankTransfer.discountPercent / 100));
+}
+
+export function estimateShipping(totalQuantity: number): number {
+  const tier = siteConfig.shipping.tiers.find((t) => totalQuantity <= t.maxQty);
+  return tier ? tier.cost : siteConfig.shipping.tiers[siteConfig.shipping.tiers.length - 1].cost;
 }
 
 export function buildWhatsappUrl(message: string): string {

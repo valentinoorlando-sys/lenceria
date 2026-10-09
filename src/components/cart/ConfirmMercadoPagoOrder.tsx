@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { estimateShipping } from "@/lib/config";
 import { useCart } from "@/lib/cart/context";
 
 export function ConfirmMercadoPagoOrder() {
@@ -11,6 +12,9 @@ export function ConfirmMercadoPagoOrder() {
     if (sent.current || items.length === 0) return;
     sent.current = true;
 
+    const quantity = items.reduce((sum, item) => sum + item.quantity, 0);
+    const shipping = estimateShipping(quantity);
+
     const payload = {
       items: items.map((item) => ({
         name: item.name,
@@ -19,7 +23,8 @@ export function ConfirmMercadoPagoOrder() {
         quantity: item.quantity,
         variantAttributes: item.variantAttributes,
       })),
-      total: subtotal,
+      total: subtotal + shipping,
+      shipping,
       paymentMethod: "Mercado Pago",
     };
 

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { MercadoPagoConfig, Preference } from "mercadopago";
-import { siteConfig } from "@/lib/config";
+import { estimateShipping, siteConfig } from "@/lib/config";
 
 interface OrderItemPayload {
   name: string;
@@ -41,15 +41,27 @@ export async function POST(request: Request) {
     const client = new MercadoPagoConfig({ accessToken });
     const preference = new Preference(client);
 
+    const quantity = body.items.reduce((sum, item) => sum + item.quantity, 0);
+    const shipping = estimateShipping(quantity);
+
     const result = await preference.create({
       body: {
-        items: body.items.map((item, index) => ({
-          id: String(index),
-          title: item.name.slice(0, 256),
-          quantity: item.quantity,
-          unit_price: item.unitPrice,
-          currency_id: siteConfig.currency.code,
-        })),
+        items: [
+          ...body.items.map((item, index) => ({
+            id: String(index),
+            title: item.name.slice(0, 256),
+            quantity: item.quantity,
+            unit_price: item.unitPrice,
+            currency_id: siteConfig.currency.code,
+          })),
+          {
+            id: "envio",
+            title: `Envío estimado (${siteConfig.shipping.carrier})`,
+            quantity: 1,
+            unit_price: shipping,
+            currency_id: siteConfig.currency.code,
+          },
+        ],
         back_urls: {
           success: `${origin}/carrito/exito`,
           failure: `${origin}/carrito/error`,
