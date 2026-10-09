@@ -11,7 +11,7 @@ import { BankTransferInfo } from "@/components/cart/BankTransferInfo";
 export function CartView() {
   const { items, subtotal, clearCart } = useCart();
   const [mpLoading, setMpLoading] = useState(false);
-  const [mpError, setMpError] = useState(false);
+  const [mpError, setMpError] = useState<string | null>(null);
 
   if (items.length === 0) {
     return (
@@ -50,7 +50,7 @@ export function CartView() {
   };
 
   const payWithMercadoPago = async () => {
-    setMpError(false);
+    setMpError(null);
     setMpLoading(true);
     try {
       const response = await fetch("/api/checkout/mercadopago", {
@@ -67,8 +67,8 @@ export function CartView() {
       const data = await response.json();
       if (!response.ok || !data.initPoint) throw new Error(data.error ?? "No se pudo iniciar el pago");
       window.location.href = data.initPoint;
-    } catch {
-      setMpError(true);
+    } catch (error) {
+      setMpError(error instanceof Error ? error.message : "No se pudo iniciar el pago");
       setMpLoading(false);
     }
   };
@@ -118,7 +118,7 @@ export function CartView() {
         </button>
         {mpError && (
           <p className="mt-2 text-center text-xs text-wine">
-            No pudimos iniciar el pago. Probá de nuevo o usá WhatsApp.
+            No pudimos iniciar el pago ({mpError}). Probá de nuevo o usá WhatsApp.
           </p>
         )}
 
