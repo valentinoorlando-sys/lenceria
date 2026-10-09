@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { formatPrice } from "@/lib/config";
 import { useCart } from "@/lib/cart/context";
@@ -9,6 +10,8 @@ import { BankTransferInfo } from "@/components/cart/BankTransferInfo";
 
 export function CartView() {
   const { items, subtotal, clearCart } = useCart();
+  const [mpLoading, setMpLoading] = useState(false);
+  const [mpError, setMpError] = useState(false);
 
   if (items.length === 0) {
     return (
@@ -46,6 +49,30 @@ export function CartView() {
     clearCart();
   };
 
+  const payWithMercadoPago = async () => {
+    setMpError(false);
+    setMpLoading(true);
+    try {
+      const response = await fetch("/api/checkout/mercadopago", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            name: item.name,
+            unitPrice: item.unitPrice,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.initPoint) throw new Error(data.error ?? "No se pudo iniciar el pago");
+      window.location.href = data.initPoint;
+    } catch {
+      setMpError(true);
+      setMpLoading(false);
+    }
+  };
+
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
       <div>
@@ -80,6 +107,20 @@ export function CartView() {
         >
           Realizar pedido por WhatsApp
         </a>
+
+        <button
+          type="button"
+          onClick={payWithMercadoPago}
+          disabled={mpLoading}
+          className="mt-3 flex w-full items-center justify-center rounded-full border border-wine px-6 py-3.5 text-sm font-medium text-wine transition-colors hover:bg-wine/5 disabled:opacity-60"
+        >
+          {mpLoading ? "Redirigiendo a Mercado Pago…" : "Pagar con tarjeta (Mercado Pago)"}
+        </button>
+        {mpError && (
+          <p className="mt-2 text-center text-xs text-wine">
+            No pudimos iniciar el pago. Probá de nuevo o usá WhatsApp.
+          </p>
+        )}
 
         <Link
           href="/"

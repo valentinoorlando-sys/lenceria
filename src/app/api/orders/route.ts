@@ -13,6 +13,7 @@ interface OrderItemPayload {
 interface OrderPayload {
   items: OrderItemPayload[];
   total: number;
+  paymentMethod?: string;
 }
 
 function isOrderPayload(body: unknown): body is OrderPayload {
@@ -58,7 +59,11 @@ function buildOrderEmailHtml(payload: OrderPayload): string {
         <span style="font-size:13px;color:#a0526d;">${formatPrice(transferPrice(payload.total))} si paga por transferencia</span>
       </p>
       <p style="color:#666;font-size:13px;">
-        El cliente fue redirigido a WhatsApp para coordinar datos de envío y forma de pago.
+        ${
+          payload.paymentMethod
+            ? `Pago confirmado por ${payload.paymentMethod}.`
+            : "El cliente fue redirigido a WhatsApp para coordinar datos de envío y forma de pago."
+        }
       </p>
     </div>
   `;
