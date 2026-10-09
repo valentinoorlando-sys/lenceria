@@ -138,18 +138,19 @@ export const categories: Category[] = [
       { slug: "tonicos", name: "Tónicos" },
       { slug: "limpiadores", name: "Limpiadores" },
       { slug: "mascarillas", name: "Mascarillas" },
+      { slug: "accesorios", name: "Accesorios" },
     ],
     attributes: [
       {
         key: "capacidad",
         label: "Tamaño",
         values: [
-          "10 ampollas",
           "22 g",
           "23 g",
           "23 ml",
           "24 ml",
           "25 ml",
+          "30 ml",
           "34 g",
           "50 ml",
           "55 g",

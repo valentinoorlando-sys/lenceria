@@ -24,9 +24,17 @@ export function Footer() {
             href={siteConfig.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-ink/70 transition-colors hover:text-wine"
+            className="block text-ink/70 transition-colors hover:text-wine"
           >
             Instagram @{siteConfig.instagramHandle}
+          </a>
+          <a
+            href={`https://wa.me/${siteConfig.whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-ink/70 transition-colors hover:text-wine"
+          >
+            +54 9 351 855-3004
           </a>
         </div>
       </div>
