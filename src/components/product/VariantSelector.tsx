@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { formatPrice } from "@/lib/config";
+import { buildWhatsappUrl, formatPrice, siteConfig } from "@/lib/config";
 import type { AttributeDefinition, AttributeKey, Product, ProductVariant } from "@/lib/types";
 import { useCart } from "@/lib/cart/context";
 
@@ -162,6 +162,28 @@ export function VariantSelector({
       {confirmation && (
         <p className="text-sm font-medium text-wine">Se agregó al carrito ✓</p>
       )}
+
+      <p className="text-xs text-ink/50">
+        ¿Necesitás más cantidad? Consultanos por{" "}
+        <a
+          href={siteConfig.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-wine"
+        >
+          Instagram
+        </a>{" "}
+        o{" "}
+        <a
+          href={buildWhatsappUrl(`Hola! Quería consultar por más stock de ${product.name}`)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-wine"
+        >
+          WhatsApp
+        </a>
+        .
+      </p>
     </div>
   );
 }
