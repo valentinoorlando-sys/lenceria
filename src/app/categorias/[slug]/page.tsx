@@ -12,6 +12,11 @@ import { FilterPanel } from "@/components/catalog/FilterPanel";
 type Params = { slug: string };
 type SearchParams = Record<string, string | string[] | undefined>;
 
+// Los datos del catálogo solo cambian con un nuevo deploy, así que Vercel puede
+// servir esta página desde el CDN por un buen rato en vez de ejecutar la
+// función en cada visita (esto venía consumiendo cuota de más).
+export const revalidate = 3600;
+
 export function generateStaticParams(): Params[] {
   return getActiveCategories().map((c) => ({ slug: c.slug }));
 }

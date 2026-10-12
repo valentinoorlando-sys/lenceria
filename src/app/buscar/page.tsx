@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   description: "Buscá productos por nombre, marca, categoría o fragancia.",
 };
 
+// Mismo motivo que en /categorias/[slug]: cachear en el CDN en vez de
+// ejecutar la función del lado del servidor en cada búsqueda repetida.
+export const revalidate = 3600;
+
 export default async function BuscarPage({
   searchParams,
 }: {

@@ -1,9 +1,16 @@
 import { ImageResponse } from "next/og";
-import { getProductBySlug } from "@/lib/data/products";
+import { getActiveProducts, getProductBySlug } from "@/lib/data/products";
 import { formatPrice, siteConfig } from "@/lib/config";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// Sin esto, Vercel regeneraba esta imagen en cada request (cada vez que
+// alguien comparte o reenvía un link de producto por WhatsApp dispara un
+// preview). Pre-generarla en el build la deja servida como archivo estático.
+export function generateStaticParams() {
+  return getActiveProducts().map((p) => ({ slug: p.slug }));
+}
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
