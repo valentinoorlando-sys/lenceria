@@ -991,10 +991,10 @@ export const products: Product[] = [
       "Sérum corrector iluminador con 15% de vitamina C pura, pycnogenol y vitamina E. Impulsa la defensa antioxidante, ilumina la piel en 10 días y corrige líneas finas. Fórmula hipoalergénica, sin fragancia. 20 ml.",
     images: ["/images/products/vichy-liftactiv-vitamin-c-serum.jpeg"],
     price: 120000,
-    stock: 1,
+    stock: 0,
     tags: ["novedad", "destacado"],
     active: true,
-    variants: [{ id: "v1", attributes: { capacidad: "20 ml" }, stock: 1 }],
+    variants: [{ id: "v1", attributes: { capacidad: "20 ml" }, stock: 0 }],
   },
   {
     id: "p74",
