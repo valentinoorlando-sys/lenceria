@@ -1485,6 +1485,21 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "M", color: "Floral Negro" }, stock: 1 }],
   },
+  {
+    id: "p104",
+    slug: "less-bordo",
+    name: "Less Clásica Bordó",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, bordó con textura rayada sutil, logo en la cintura.",
+    images: ["/images/products/vs-less-bordo-frente.jpeg", "/images/products/vs-less-bordo-dorso.jpeg"],
+    price: 36000,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "L", color: "Bordo" }, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
