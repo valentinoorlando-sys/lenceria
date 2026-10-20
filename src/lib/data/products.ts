@@ -1500,6 +1500,24 @@ export const products: Product[] = [
     active: true,
     variants: [{ id: "v1", attributes: { talle: "L", color: "Bordo" }, stock: 1 }],
   },
+  {
+    id: "p105",
+    slug: "less-negra-logo-ancho",
+    name: "Less Clásica Negra Logo",
+    brand: "Victoria's Secret",
+    categorySlug: "victorias-secret",
+    subcategorySlug: "less",
+    description: "Bombacha tipo less importada, negra con logo ancho en la cintura.",
+    images: [
+      "/images/products/vs-less-negra-logo-ancho-frente.jpeg",
+      "/images/products/vs-less-negra-logo-ancho-dorso.jpeg",
+    ],
+    price: 36000,
+    stock: 1,
+    tags: ["novedad"],
+    active: true,
+    variants: [{ id: "v1", attributes: { talle: "M", color: "Negro" }, stock: 1 }],
+  },
 ];
 
 export function getActiveProducts(): Product[] {
