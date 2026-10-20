@@ -84,6 +84,7 @@ export const categories: Category[] = [
           "Lila",
           "Rayas",
           "Azul Marino",
+          "Coral",
           "Estampado",
           "Leopardo",
           "Floral Bordo",
