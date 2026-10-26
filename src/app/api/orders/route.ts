@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { formatPrice, siteConfig, transferPrice } from "@/lib/config";
+import { formatPrice, siteConfig, transferPrice, type ShippingMethod } from "@/lib/config";
 
 interface OrderItemPayload {
   name: string;
@@ -14,6 +14,7 @@ interface OrderPayload {
   items: OrderItemPayload[];
   total: number;
   shipping?: number;
+  shippingMethod?: ShippingMethod;
   paymentMethod?: string;
 }
 
@@ -59,7 +60,11 @@ function buildOrderEmailHtml(payload: OrderPayload): string {
         <tbody>${rows}</tbody>
       </table>
       <p style="text-align:right;font-size:14px;margin-top:12px;color:#666;">
-        Envío estimado (${siteConfig.shipping.carrier}): ${formatPrice(shipping)}
+        ${
+          payload.shippingMethod === "retiro"
+            ? "Entrega: retiro / a coordinar con la vendedora"
+            : `Envío estimado (${siteConfig.shipping.carrier}): ${formatPrice(shipping)}`
+        }
       </p>
       <p style="text-align:right;font-size:18px;margin-top:4px;">
         <strong>Total: ${formatPrice(payload.total)}</strong><br/>

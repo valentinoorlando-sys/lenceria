@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { estimateShipping } from "@/lib/config";
+import { shippingCostFor } from "@/lib/config";
 import { useCart } from "@/lib/cart/context";
+import { readShippingMethod, setShippingMethod } from "@/lib/shipping/store";
 
 export function ConfirmMercadoPagoOrder() {
   const { items, subtotal, clearCart } = useCart();
@@ -13,7 +14,8 @@ export function ConfirmMercadoPagoOrder() {
     sent.current = true;
 
     const quantity = items.reduce((sum, item) => sum + item.quantity, 0);
-    const shipping = estimateShipping(quantity);
+    const shippingMethod = readShippingMethod();
+    const shipping = shippingCostFor(shippingMethod, quantity);
 
     const payload = {
       items: items.map((item) => ({
@@ -25,6 +27,7 @@ export function ConfirmMercadoPagoOrder() {
       })),
       total: subtotal + shipping,
       shipping,
+      shippingMethod,
       paymentMethod: "Mercado Pago",
     };
 
@@ -35,7 +38,10 @@ export function ConfirmMercadoPagoOrder() {
       keepalive: true,
     })
       .catch(() => {})
-      .finally(() => clearCart());
+      .finally(() => {
+        clearCart();
+        setShippingMethod("envio");
+      });
   }, [items, subtotal, clearCart]);
 
   return null;

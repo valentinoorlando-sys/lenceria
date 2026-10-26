@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { MercadoPagoConfig, Preference } from "mercadopago";
-import { estimateShipping, siteConfig } from "@/lib/config";
+import { shippingCostFor, siteConfig, type ShippingMethod } from "@/lib/config";
 
 interface OrderItemPayload {
   name: string;
@@ -10,12 +10,17 @@ interface OrderItemPayload {
 
 interface OrderPayload {
   items: OrderItemPayload[];
+  shippingMethod?: ShippingMethod;
 }
 
 function isOrderPayload(body: unknown): body is OrderPayload {
   if (!body || typeof body !== "object") return false;
-  const { items } = body as Record<string, unknown>;
-  return Array.isArray(items);
+  const { items, shippingMethod } = body as Record<string, unknown>;
+  if (!Array.isArray(items)) return false;
+  if (shippingMethod !== undefined && shippingMethod !== "envio" && shippingMethod !== "retiro") {
+    return false;
+  }
+  return true;
 }
 
 export async function POST(request: Request) {
@@ -42,7 +47,8 @@ export async function POST(request: Request) {
     const preference = new Preference(client);
 
     const quantity = body.items.reduce((sum, item) => sum + item.quantity, 0);
-    const shipping = estimateShipping(quantity);
+    const shippingMethod: ShippingMethod = body.shippingMethod ?? "envio";
+    const shipping = shippingCostFor(shippingMethod, quantity);
 
     const result = await preference.create({
       body: {
@@ -54,13 +60,17 @@ export async function POST(request: Request) {
             unit_price: item.unitPrice,
             currency_id: siteConfig.currency.code,
           })),
-          {
-            id: "envio",
-            title: `Envío estimado (${siteConfig.shipping.carrier})`,
-            quantity: 1,
-            unit_price: shipping,
-            currency_id: siteConfig.currency.code,
-          },
+          ...(shipping > 0
+            ? [
+                {
+                  id: "envio",
+                  title: `Envío estimado (${siteConfig.shipping.carrier})`,
+                  quantity: 1,
+                  unit_price: shipping,
+                  currency_id: siteConfig.currency.code,
+                },
+              ]
+            : []),
         ],
         back_urls: {
           success: `${origin}/carrito/exito`,

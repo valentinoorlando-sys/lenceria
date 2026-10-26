@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { estimateShipping, formatPrice, siteConfig } from "@/lib/config";
+import { formatPrice, shippingCostFor, siteConfig } from "@/lib/config";
 import { useCart } from "@/lib/cart/context";
 import { buildOrderWhatsappUrl } from "@/lib/whatsapp";
+import { useShippingMethod } from "@/lib/shipping/context";
 import { CartLineItem } from "@/components/cart/CartLineItem";
 import { BankTransferInfo } from "@/components/cart/BankTransferInfo";
 
@@ -12,8 +13,10 @@ export function CartView() {
   const { items, subtotal, clearCart } = useCart();
   const [mpLoading, setMpLoading] = useState(false);
   const [mpError, setMpError] = useState<string | null>(null);
+  const { method: shippingMethod, setMethod: setShippingMethod } = useShippingMethod();
+
   const quantity = items.reduce((sum, item) => sum + item.quantity, 0);
-  const shipping = estimateShipping(quantity);
+  const shipping = shippingCostFor(shippingMethod, quantity);
   const total = subtotal + shipping;
 
   if (items.length === 0) {
@@ -30,7 +33,7 @@ export function CartView() {
     );
   }
 
-  const whatsappUrl = buildOrderWhatsappUrl(items, subtotal);
+  const whatsappUrl = buildOrderWhatsappUrl(items, subtotal, shippingMethod);
 
   const notifyOrder = () => {
     const payload = {
@@ -43,6 +46,7 @@ export function CartView() {
       })),
       total,
       shipping,
+      shippingMethod,
     };
     fetch("/api/orders", {
       method: "POST",
@@ -66,6 +70,7 @@ export function CartView() {
             unitPrice: item.unitPrice,
             quantity: item.quantity,
           })),
+          shippingMethod,
         }),
       });
       const data = await response.json();
@@ -93,20 +98,56 @@ export function CartView() {
       </div>
 
       <div className="rounded-2xl border border-cream p-5">
-        <div className="flex items-center justify-between text-sm text-ink/70">
+        <p className="mb-2 text-sm font-medium text-ink">Entrega</p>
+        <div className="grid grid-cols-1 gap-2">
+          <button
+            type="button"
+            onClick={() => setShippingMethod("envio")}
+            className={`rounded-xl border px-3 py-2 text-left text-sm transition-colors ${
+              shippingMethod === "envio"
+                ? "border-wine bg-wine/5 text-ink"
+                : "border-cream text-ink/70 hover:border-wine/50"
+            }`}
+          >
+            <span className="font-medium">Envío a domicilio</span>
+            <span className="block text-xs text-ink/50">
+              {siteConfig.shipping.carrier} · costo estimado según cantidad
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setShippingMethod("retiro")}
+            className={`rounded-xl border px-3 py-2 text-left text-sm transition-colors ${
+              shippingMethod === "retiro"
+                ? "border-wine bg-wine/5 text-ink"
+                : "border-cream text-ink/70 hover:border-wine/50"
+            }`}
+          >
+            <span className="font-medium">Retiro / A coordinar</span>
+            <span className="block text-xs text-ink/50">
+              Sin costo de envío, coordinamos el lugar y horario por WhatsApp
+            </span>
+          </button>
+        </div>
+
+        <div className="mt-4 flex items-center justify-between border-t border-cream pt-3 text-sm text-ink/70">
           <span>Subtotal</span>
           <span>{formatPrice(subtotal)}</span>
         </div>
         <div className="mt-1.5 flex items-center justify-between text-sm text-ink/70">
-          <span>Envío estimado ({siteConfig.shipping.carrier})</span>
-          <span>{formatPrice(shipping)}</span>
+          <span>
+            {shippingMethod === "retiro" ? "Envío" : `Envío estimado (${siteConfig.shipping.carrier})`}
+          </span>
+          <span>{shippingMethod === "retiro" ? "A coordinar" : formatPrice(shipping)}</span>
         </div>
         <div className="mt-2 flex items-center justify-between border-t border-cream pt-3 text-base font-medium text-ink">
           <span>Total</span>
           <span className="text-wine">{formatPrice(total)}</span>
         </div>
         <p className="mt-1 text-xs text-ink/50">
-          El envío es un costo estimado según la cantidad de productos.
+          {shippingMethod === "retiro"
+            ? "Coordinamos el retiro o la entrega por WhatsApp."
+            : "El envío es un costo estimado según la cantidad de productos."}
         </p>
 
         <a

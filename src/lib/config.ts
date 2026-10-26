@@ -48,6 +48,12 @@ export function estimateShipping(totalQuantity: number): number {
   return tier ? tier.cost : siteConfig.shipping.tiers[siteConfig.shipping.tiers.length - 1].cost;
 }
 
+export type ShippingMethod = "envio" | "retiro";
+
+export function shippingCostFor(method: ShippingMethod, totalQuantity: number): number {
+  return method === "retiro" ? 0 : estimateShipping(totalQuantity);
+}
+
 export function buildWhatsappUrl(message: string): string {
   const encoded = encodeURIComponent(message);
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encoded}`;
