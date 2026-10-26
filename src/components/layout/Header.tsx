@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 import { getActiveCategories } from "@/lib/data/categories";
 import { useCart } from "@/lib/cart/context";
+import { useFavorites } from "@/lib/favorites/context";
 
 const categories = getActiveCategories();
 const NAV_ITEMS = [
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { itemCount } = useCart();
+  const { count: favoriteCount } = useFavorites();
 
   return (
     <header className="sticky top-0 z-30 border-b border-cream bg-bone/95 backdrop-blur">
@@ -51,6 +53,18 @@ export function Header() {
             className="rounded-full p-2 text-ink transition-colors hover:bg-cream"
           >
             <SearchIcon className="h-5 w-5" />
+          </Link>
+          <Link
+            href="/favoritos"
+            aria-label="Ver favoritos"
+            className="relative rounded-full p-2 text-ink transition-colors hover:bg-cream"
+          >
+            <HeartIcon className="h-5 w-5" />
+            {favoriteCount > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-wine text-[10px] font-medium text-cream">
+                {favoriteCount > 9 ? "9+" : favoriteCount}
+              </span>
+            )}
           </Link>
           <Link
             href="/carrito"
@@ -108,6 +122,18 @@ function SearchIcon({ className }: { className?: string }) {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
       <circle cx="11" cy="11" r="7" />
       <path d="m21 21-4.3-4.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function HeartIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className} aria-hidden="true">
+      <path
+        d="M12 20.5s-7.3-4.4-9.8-8.8C.7 8.3 2.3 5 5.6 4.4c2-.4 4 .4 5.3 1.9.4.5.8 1 1.1 1.5.3-.5.7-1 1.1-1.5 1.3-1.5 3.3-2.3 5.3-1.9 3.3.6 4.9 3.9 3.4 7.3-2.5 4.4-9.8 8.8-9.8 8.8Z"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

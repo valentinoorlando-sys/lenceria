@@ -7,6 +7,7 @@ import { formatPrice, siteConfig, transferPrice } from "@/lib/config";
 import { discountPercent, isInStock } from "@/lib/types";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { VariantSelector } from "@/components/product/VariantSelector";
+import { FavoriteButton } from "@/components/product/FavoriteButton";
 import { ProductSection } from "@/components/home/ProductSection";
 
 type Params = { slug: string };
@@ -100,8 +101,16 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <ProductGallery name={product.name} images={product.images} />
 
         <div>
-          <p className="text-xs uppercase tracking-wide text-ink/50">{product.brand}</p>
-          <h1 className="mt-1 font-serif text-3xl italic text-ink sm:text-4xl">{product.name}</h1>
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-wide text-ink/50">{product.brand}</p>
+              <h1 className="mt-1 font-serif text-3xl italic text-ink sm:text-4xl">{product.name}</h1>
+            </div>
+            <FavoriteButton
+              productId={product.id}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cream text-wine transition-colors hover:bg-cream"
+            />
+          </div>
 
           <div className="mt-3 flex items-baseline gap-3">
             <span className="text-2xl font-medium text-wine">{formatPrice(product.price)}</span>
