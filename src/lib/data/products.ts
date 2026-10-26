@@ -581,10 +581,10 @@ export const products: Product[] = [
       "Set importado Love Spell con body splash y body lotion, 75 ml cada uno. Presentación lista para regalar.",
     images: ["/images/products/vs-set-mini-love-spell.jpeg"],
     price: 65000,
-    stock: 1,
+    stock: 0,
     tags: ["novedad"],
     active: true,
-    variants: [{ id: "v1", attributes: {}, stock: 1 }],
+    variants: [{ id: "v1", attributes: {}, stock: 0 }],
   },
   {
     id: "p50",
