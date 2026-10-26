@@ -1559,3 +1559,15 @@ export function getRecommendedProducts(excludeSlug?: string, limit = 4): Product
     .filter((p) => p.slug !== excludeSlug)
     .slice(0, limit);
 }
+
+export function getComboSuggestions(product: Product, limit = 4): Product[] {
+  const aromas = new Set(
+    product.variants.map((v) => v.attributes.aroma).filter((a): a is string => Boolean(a))
+  );
+  if (aromas.size === 0) return [];
+
+  return getActiveProducts()
+    .filter((p) => p.id !== product.id)
+    .filter((p) => p.variants.some((v) => v.attributes.aroma && aromas.has(v.attributes.aroma)))
+    .slice(0, limit);
+}

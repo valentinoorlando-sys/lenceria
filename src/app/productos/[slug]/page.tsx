@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryBySlug } from "@/lib/data/categories";
-import { getProductBySlug, getRecommendedProducts, getActiveProducts } from "@/lib/data/products";
+import {
+  getProductBySlug,
+  getRecommendedProducts,
+  getComboSuggestions,
+  getActiveProducts,
+} from "@/lib/data/products";
 import { formatPrice, siteConfig, transferPrice } from "@/lib/config";
 import { discountPercent, isInStock } from "@/lib/types";
 import { ProductGallery } from "@/components/product/ProductGallery";
@@ -53,7 +58,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
     variantAttributeKeys.includes(def.key)
   );
 
-  const recommended = getRecommendedProducts(product.slug, 4);
+  const comboSuggestions = getComboSuggestions(product, 4);
+  const recommended = getRecommendedProducts(product.slug, 4).filter(
+    (p) => !comboSuggestions.some((c) => c.id === p.id)
+  );
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -137,6 +145,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         </div>
       </div>
 
+      <ProductSection
+        title="Combo sugerido"
+        subtitle="Mismo aroma, para combinar"
+        products={comboSuggestions}
+      />
       <ProductSection title="También te puede interesar" products={recommended} />
     </div>
   );

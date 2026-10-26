@@ -4,10 +4,12 @@ import { ProductCard } from "@/components/product/ProductCard";
 
 export function ProductSection({
   title,
+  subtitle,
   products,
   viewAllHref,
 }: {
   title: string;
+  subtitle?: string;
   products: Product[];
   viewAllHref?: string;
 }) {
@@ -16,7 +18,10 @@ export function ProductSection({
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <div className="mb-6 flex items-baseline justify-between">
-        <h2 className="font-serif text-2xl italic text-ink sm:text-3xl">{title}</h2>
+        <div>
+          <h2 className="font-serif text-2xl italic text-ink sm:text-3xl">{title}</h2>
+          {subtitle && <p className="mt-1 text-sm text-ink/60">{subtitle}</p>}
+        </div>
         {viewAllHref && (
           <Link
             href={viewAllHref}
