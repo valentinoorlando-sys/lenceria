@@ -373,10 +373,10 @@ export const products: Product[] = [
     description: "Bombacha tipo less importada, gris jaspeado con logo en la cintura.",
     images: ["/images/products/vs-less-gris-logo-frente.jpeg", "/images/products/vs-less-gris-logo-dorso.jpeg"],
     price: 36000,
-    stock: 1,
+    stock: 0,
     tags: ["novedad"],
     active: true,
-    variants: [{ id: "v1", attributes: { talle: "M", color: "Gris" }, stock: 1 }],
+    variants: [{ id: "v1", attributes: { talle: "M", color: "Gris" }, stock: 0 }],
   },
   {
     id: "p37",
