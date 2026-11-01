@@ -39,8 +39,33 @@ export function formatPrice(amount: number): string {
   }).format(amount);
 }
 
-export function transferPrice(price: number): number {
-  return Math.round(price * (1 - siteConfig.bankTransfer.discountPercent / 100));
+export function transferPrice(
+  price: number,
+  discountPercent: number = siteConfig.bankTransfer.discountPercent
+): number {
+  return Math.round(price * (1 - discountPercent / 100));
+}
+
+export const cyberMondayPromo = {
+  label: "Cyber Monday",
+  discountPercent: 25,
+  // Córdoba, Argentina (UTC-3).
+  startsAt: "2026-11-02T00:00:00-03:00",
+  endsAt: "2026-11-04T23:59:59-03:00",
+};
+
+export function isCyberMondayActive(now: Date = new Date()): boolean {
+  const t = now.getTime();
+  return (
+    t >= new Date(cyberMondayPromo.startsAt).getTime() &&
+    t <= new Date(cyberMondayPromo.endsAt).getTime()
+  );
+}
+
+export function activeTransferDiscountPercent(now: Date = new Date()): number {
+  return isCyberMondayActive(now)
+    ? cyberMondayPromo.discountPercent
+    : siteConfig.bankTransfer.discountPercent;
 }
 
 export function estimateShipping(totalQuantity: number): number {

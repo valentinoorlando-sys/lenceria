@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { formatPrice, siteConfig, transferPrice, type ShippingMethod } from "@/lib/config";
+import {
+  activeTransferDiscountPercent,
+  formatPrice,
+  siteConfig,
+  transferPrice,
+  type ShippingMethod,
+} from "@/lib/config";
 
 interface OrderItemPayload {
   name: string;
@@ -69,7 +75,7 @@ function buildOrderEmailHtml(payload: OrderPayload): string {
       <p style="text-align:right;font-size:18px;margin-top:4px;">
         <strong>Total: ${formatPrice(payload.total)}</strong><br/>
         <span style="font-size:13px;color:#a0526d;">
-          ${formatPrice(transferPrice(productsSubtotal) + shipping)} si paga por transferencia
+          ${formatPrice(transferPrice(productsSubtotal, activeTransferDiscountPercent()) + shipping)} si paga por transferencia
         </span>
       </p>
       <p style="color:#666;font-size:13px;">

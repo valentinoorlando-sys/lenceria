@@ -8,11 +8,12 @@ import {
   getComboSuggestions,
   getActiveProducts,
 } from "@/lib/data/products";
-import { formatPrice, siteConfig, transferPrice } from "@/lib/config";
+import { formatPrice, siteConfig } from "@/lib/config";
 import { discountPercent, isInStock } from "@/lib/types";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { VariantSelector } from "@/components/product/VariantSelector";
 import { FavoriteButton } from "@/components/product/FavoriteButton";
+import { TransferPrice } from "@/components/product/TransferPrice";
 import { ProductSection } from "@/components/home/ProductSection";
 
 type Params = { slug: string };
@@ -133,9 +134,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               </>
             )}
           </div>
-          <p className="mt-1 text-sm text-bronze">
-            {formatPrice(transferPrice(product.price))} pagando por transferencia
-          </p>
+          <TransferPrice
+            price={product.price}
+            className="mt-1 text-sm text-bronze"
+            suffix="pagando por transferencia"
+          />
 
           <p className="mt-4 text-ink/70">{product.description}</p>
 

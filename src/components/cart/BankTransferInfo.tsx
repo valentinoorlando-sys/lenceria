@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { siteConfig } from "@/lib/config";
+import { cyberMondayPromo, siteConfig } from "@/lib/config";
+import { useIsCyberMondayActive, useTransferDiscountPercent } from "@/lib/promotions/context";
 
 function CopyField({ label, value }: { label: string; value: string }) {
   const [copied, setCopied] = useState(false);
@@ -35,12 +36,24 @@ function CopyField({ label, value }: { label: string; value: string }) {
 
 export function BankTransferInfo() {
   const { holder, cvu, alias } = siteConfig.bankTransfer;
+  const discountPercent = useTransferDiscountPercent();
+  const isCyberMonday = useIsCyberMondayActive();
 
   return (
     <details className="mt-3 rounded-2xl border border-cream px-4 py-3">
       <summary className="cursor-pointer select-none text-sm font-medium text-ink">
         También podés pagar por transferencia
       </summary>
+      {isCyberMonday ? (
+        <p className="mt-2 text-sm font-medium text-wine">
+          {cyberMondayPromo.label}: {discountPercent}% off en todos los productos pagando por
+          transferencia.
+        </p>
+      ) : (
+        <p className="mt-2 text-sm text-ink/60">
+          Pagando por transferencia tenés {discountPercent}% off.
+        </p>
+      )}
       <div className="mt-2 divide-y divide-cream border-t border-cream pt-1">
         <CopyField label="Alias" value={alias} />
         <CopyField label="CVU" value={cvu} />

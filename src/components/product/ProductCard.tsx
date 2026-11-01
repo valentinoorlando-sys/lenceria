@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { formatPrice, transferPrice } from "@/lib/config";
+import { formatPrice } from "@/lib/config";
 import { discountPercent, isInStock, type Product } from "@/lib/types";
 import { ProductImagePlaceholder } from "@/components/ui/ProductImagePlaceholder";
 import { FavoriteButton } from "@/components/product/FavoriteButton";
+import { TransferPrice } from "@/components/product/TransferPrice";
 
 export function ProductCard({ product }: { product: Product }) {
   const discount = discountPercent(product);
@@ -63,9 +64,7 @@ export function ProductCard({ product }: { product: Product }) {
               </span>
             )}
           </div>
-          <p className="text-xs text-bronze">
-            {formatPrice(transferPrice(product.price))} con transferencia
-          </p>
+          <TransferPrice price={product.price} className="text-xs text-bronze" />
         </div>
       </Link>
 
